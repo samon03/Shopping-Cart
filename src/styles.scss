@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+.cart-item
+{
+    font-size: small;
+}
+
+.filters
+{
+  font-size: medium;
+}
+
+.card, .form-control, .btn
+{
+  border-radius: 0;
+}
+
+.list-group-item:first-child
+{
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.list-group-item:last-child
+{
+  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+}

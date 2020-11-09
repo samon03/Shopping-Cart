@@ -3,11 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Shopping-Cart": {
+    "Todo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -17,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Shopping-Cart",
+            "outputPath": "dist/Todo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +50,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -66,18 +89,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Shopping-Cart:build"
+            "browserTarget": "Todo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Shopping-Cart:build:production"
+              "browserTarget": "Todo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Shopping-Cart:build"
+            "browserTarget": "Todo:build"
           }
         },
         "test": {
@@ -114,15 +137,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Shopping-Cart:serve"
+            "devServerTarget": "Todo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Shopping-Cart:serve:production"
+              "devServerTarget": "Todo:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "Shopping-Cart"
+    }
+  },
+  "defaultProject": "Todo",
+  "cli": {
+    "analytics": false
+  }
 }
