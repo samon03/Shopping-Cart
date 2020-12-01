@@ -5,6 +5,9 @@
       {{ productItem.title }}
     </p>
     <p class="card-text">
+      {{ productItem.description | slice: 0:50 }}...
+    </p>
+    <p class="card-text">
       <strong>
         {{ productItem.price | currency:'USD' }}
       </strong>

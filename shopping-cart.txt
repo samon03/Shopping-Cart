@@ -1,0 +1,4 @@
+json-server 
+-----------------
+- npm i -g json-server
+- another cmd -> cd project_folder -> json-server db.json [which creates db.json file in the folder]
