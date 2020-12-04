@@ -14,7 +14,7 @@ export class ProductItemComponent implements OnInit {
 
   @Input() productItem: Product;
 
-  addedTowishlist: boolean = false;
+  @Input() addedTowishlist: boolean;
 
   constructor(private msg: MessengerService,
     private cartService: CartService,
