@@ -5,3 +5,8 @@ json-server
 ------------------------------------------
 - ng g class models/cart
 - ng g s services/cart
+------------------
+
+API (Plugins):
+
+https://cdnjs.com/libraries/font-awesome

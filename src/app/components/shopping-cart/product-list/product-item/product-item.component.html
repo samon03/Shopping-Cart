@@ -1,16 +1,20 @@
-<div class="card mb-4 shadow-sm text-center">
+<div class="card mb-4 shadow-sm">
   <img class="bd-placeholder-img card-img-top" width="100%" [src]="productItem.imageUrl">
   <div class="card-body">
-    <p class="card-text">
-      {{ productItem.title }}
+    <p class="card-text text-center">
+      <strong>
+        {{ productItem.title }}
+      </strong>
     </p>
-    <p class="card-text">
-      {{ productItem.description | slice: 0:50 }}...
+    <p class="card-text text-center">
+      {{ productItem.description | slice: 0:40 }}...
     </p>
     <p class="card-text">
       <strong>
         {{ productItem.price | currency:'USD' }}
       </strong>
+      <i *ngIf="addedTowishlist" class="fas fa-heart float-right" (click)=" handleRemoveFromWishlist()"></i>
+      <i *ngIf="!addedTowishlist" class="far fa-heart float-right" (click)="handleAddToWishlist()"></i>
     </p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
