@@ -14,7 +14,7 @@ export class ProductListComponent implements OnInit {
   productList: Product[] = [];
   wishlist: number[] = [];
 
-  constructor(private productservice: ProductService,
+  constructor(private productService: ProductService,
     private wishlistService: WishlistService) { }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    this.productservice.getProducts().subscribe(products => {
+    this.productService.getProducts().subscribe(products => {
       this.productList = products;
     });
   }

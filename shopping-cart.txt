@@ -5,8 +5,36 @@ json-server
 ------------------------------------------
 - ng g class models/cart
 - ng g s services/cart
+- ng g s services/wishlist
 ------------------
 
 API (Plugins):
 
 https://cdnjs.com/libraries/font-awesome
+
+
+----------------------------
+Details page
+-----------------------------
+
+- create path in app-routing.module.ts
+- lazy loading 
+  @NgModule({
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule]
+  })
+
+- import app-routing.module.ts in App.component.ts
+- add <route-outlet> in App.component.html
+- @Input
+- service / details
+
+
+-----------------
+Run :
+
+ng serve --open
+json-server db.json
+
