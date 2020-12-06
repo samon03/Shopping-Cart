@@ -1,0 +1,57 @@
+<div>
+  <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Subtotal</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItem">
+        <th>{{ item.productTitle }}</th>
+        <td>${{ item.price }}</td>
+        <td>
+          <input type="number" value="{{ item.qty}}" max="{{item.qty}}" min="{{item.qty}}"
+            class="cart__quantity text-center">
+        </td>
+        <td>${{ item.price * item.qty }}.00</td>
+        <td>
+          <i class="fas fa-times"></i>
+        </td>
+      </tr>
+      <tr class="cart-table" style="border: none;">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <button type="button" class="btn btn-dark m-2">Update Cart</button>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="mt-5 col-md-5 float-right">
+  <h4><strong>Cart Total</strong></h4>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>Subtotal</th>
+        <td>{{ cartTotal | currency:'USD' }}</td>
+      </tr>
+      <tr>
+        <th>Shipping</th>
+        <td>Free Shipping
+          <br> This will avaible during checkout page
+        </td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>{{ cartTotal | currency:'USD' }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
