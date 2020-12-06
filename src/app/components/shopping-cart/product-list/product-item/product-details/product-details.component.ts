@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { ProductItemComponent } from 'src/app/components/shopping-cart/product-list/product-item/product-item.component';
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
+import { MessengerService } from 'src/app/services/messenger.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -15,7 +17,9 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
 
   constructor(private productService: ProductService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private msg: MessengerService,) { }
 
   ngOnInit(): void {
 
@@ -35,5 +39,13 @@ export class ProductDetailsComponent implements OnInit {
       })
 
     });
+
   }
+
+  addTocart() {
+    this.cartService.addToCart(this.product).subscribe(() => {
+      this.msg.sendMsg(this.product);
+    })
+  }
+
 }

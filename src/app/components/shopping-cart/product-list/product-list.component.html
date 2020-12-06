@@ -1,3 +1,13 @@
+<div class="row mt-2 mb-4">
+  <div class="col-md-12">
+    <select class="form-control selcls float-right" id="price" #input (change)='updateValues(input.value)'>
+      <option>Default</option>
+      <option value="low">Low to high</option>
+      <option value="high">High to low</option>
+    </select>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-4" *ngFor="let product of productList">
      <app-product-item [productItem]="product" [addedTowishlist]="wishlist.indexOf(product.id) >= 0"></app-product-item>

@@ -34,4 +34,20 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+
+  updateValues(value: string)
+  {
+
+    if(value == 'high')
+    {
+      this.productList.sort((a, b)=> b.price - a.price);
+
+    }
+    if(value == 'low')
+    {
+      this.productList.sort((a, b)=> a.price - b.price);
+
+    }
+  }
+
 }
