@@ -47,17 +47,9 @@ export class CartService {
   }
 
   addToCart(product: Product): Observable<any> {
-        // return this.http.post(cartUrl, {product});
         product.stock = product.stock - 1;
         this.productService.putProduct(product).subscribe();
         return this.http.post(cartUrl, {product});
   }
-
-  // postCartItem(product: Product): Observable<any>
-  // {
-  //   product.stock = product.stock - 1;
-  //   this.productService.putProduct(product).subscribe();
-  //   return this.http.post(cartUrl, {product});
-  // }
 
 }
