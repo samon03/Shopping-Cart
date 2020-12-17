@@ -6,13 +6,15 @@ import { map } from 'rxjs/operators';
 import { cartUrl } from '../config/api';
 import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private productService: ProductService) { }
 
   getCartItems(): Observable<CartItem[]> {
       return this.http.get<CartItem[]>(cartUrl).pipe(
@@ -45,7 +47,17 @@ export class CartService {
   }
 
   addToCart(product: Product): Observable<any> {
+        // return this.http.post(cartUrl, {product});
+        product.stock = product.stock - 1;
+        this.productService.putProduct(product).subscribe();
         return this.http.post(cartUrl, {product});
   }
+
+  // postCartItem(product: Product): Observable<any>
+  // {
+  //   product.stock = product.stock - 1;
+  //   this.productService.putProduct(product).subscribe();
+  //   return this.http.post(cartUrl, {product});
+  // }
 
 }

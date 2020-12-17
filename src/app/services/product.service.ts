@@ -20,4 +20,8 @@ export class ProductService {
   getProduct(id: number): Observable<Product> {
     return this.http.get<Product>(productsUrl + `/${id}`);
   }
+
+  putProduct(product: Product): Observable<Product[]>{
+    return this.http.put<Product[]>(`${productsUrl}/${product.id}`, product);
+  }
 }
